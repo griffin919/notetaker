@@ -15,9 +15,8 @@ const router = express.Router();
 router.post('/', registerUser);
 router.post('/auth', authUser);
 router.post('/logout', logoutUser);
-router.route('/note')
-.post(protect, createNote)
-.get(protect, getNote);
+router.post('/note', protect, createNote);
+router.get('/note/:id', protect, getNote);
 router
   .route('/profile')
   .get(protect, getUserProfile)

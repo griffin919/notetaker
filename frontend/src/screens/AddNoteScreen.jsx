@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCreateNoteMutation } from '../slices/notesApiSlice';
+import { useCreatenoteMutation } from '../slices/usersApiSlice';
 import { toast } from 'react-toastify';
 
 const AddNoteScreen = () => {
@@ -12,7 +12,7 @@ const AddNoteScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [createNote, { isLoading }] = useCreateNoteMutation();
+  const [createNote, { isLoading }] = useCreatenoteMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -30,7 +30,7 @@ const AddNoteScreen = () => {
       }).unwrap();
       // Do something with the response if needed
       toast.success('Note created successfully');
-      navigate('/');
+      navigate(`/note`);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

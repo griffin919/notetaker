@@ -23,6 +23,20 @@ export const userApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    createnote: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/note`,
+        method: 'POST',
+        body: data,
+      }),
+    }),
+    getnote: builder.query({
+      query: (data) => ({
+        url: `${USERS_URL}/note/:id`,
+        method: 'GET',
+        body: data,
+      }),
+    }),
     updateUser: builder.mutation({
       query: (data) => ({
         url: `${USERS_URL}/profile`,
@@ -38,4 +52,6 @@ export const {
   useLogoutMutation,
   useRegisterMutation,
   useUpdateUserMutation,
+  useCreatenoteMutation,
+  useGetnoteQuery,
 } = userApiSlice;

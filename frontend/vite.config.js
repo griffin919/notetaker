@@ -12,5 +12,10 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
-  },
+    
+    },
+    // Other Vite configuration options...
+    css: {
+      sourceMap: false,
+    },
 });
